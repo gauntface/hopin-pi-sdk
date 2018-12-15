@@ -22,6 +22,14 @@
   },
   "homepage": "https://github.com/gauntface/hopin-pi-sdk#readme",
   "devDependencies": {
-    "@hopin/wbt-ts-node": "0.0.17"
+    "@hopin/wbt-ts-node": "0.0.17",
+    "@types/bonjour": "^3.5.5"
+  },
+  "dependencies": {
+    "@hopin/logger": "^2.0.0",
+    "bonjour": "^3.5.0",
+    "fs-extra": "^7.0.1",
+    "gulp": "^4.0.0",
+    "spread-the-word": "^0.6.0"
   }
 }
