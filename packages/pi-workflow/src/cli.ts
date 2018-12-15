@@ -1,4 +1,4 @@
-import {getRaspberryPiInfo} from '../pi-sdk';
+import {getRaspberryPiInfo} from '@hopin/pi-sdk';
 
 
 async function run() {

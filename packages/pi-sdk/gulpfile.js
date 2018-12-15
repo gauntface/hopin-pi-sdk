@@ -11,7 +11,7 @@ setConfig(src, dst);
 
 gulp.task('clean', gulp.parallel(
   () => fs.remove('build'),
-))
+));
 
 gulp.task('build',
   gulp.series(

@@ -1,35 +1,11 @@
 {
-  "name": "@hopin/pi-sdk",
-  "version": "1.0.0",
-  "description": "An SDK to help work with, administer and develop for Raspberry Pis",
-  "main": "build/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gauntface/hopin-pi-sdk.git"
-  },
-  "keywords": [
-    "hopin",
-    "pi",
-    "raspberry-pi"
-  ],
-  "author": "gauntface",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gauntface/hopin-pi-sdk/issues"
-  },
-  "homepage": "https://github.com/gauntface/hopin-pi-sdk#readme",
+  "private": true,
   "devDependencies": {
     "@hopin/wbt-ts-node": "0.0.17",
-    "@types/bonjour": "^3.5.5"
-  },
-  "dependencies": {
-    "@hopin/logger": "^2.0.0",
-    "bonjour": "^3.5.0",
+    "@types/bonjour": "^3.5.5",
     "fs-extra": "^7.0.1",
     "gulp": "^4.0.0",
-    "spread-the-word": "^0.6.0"
-  }
+    "lerna": "^3.6.0"
+  },
+  "name": "hopin-pi-sdk"
 }
