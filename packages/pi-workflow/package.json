@@ -1,6 +1,6 @@
 {
   "name": "@hopin/pi-workflow",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A tool to help developing for the Raspberry Pi.",
   "main": "./build/index.js",
   "bin": {
