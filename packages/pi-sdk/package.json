@@ -1,8 +1,11 @@
 {
   "name": "@hopin/pi-sdk",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A library consisting of useful functions for Raspberry Pi.",
   "main": "./build/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepublish": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,5 +27,6 @@
   "homepage": "https://github.com/gauntface/hopin-pi-sdk#readme",
   "dependencies": {
     "@hopin/logger": "^2.0.0"
-  }
+  },
+  "gitHead": "873ca521f96fbf9bf2c96c4fc42cc6e5bd7fb76a"
 }

@@ -1,7 +1,10 @@
 {
   "name": "@hopin/pi-workflow",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A tool to help developing for the Raspberry Pi.",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./build/index.js",
   "bin": {
     "pi-workflow": "./build/cli.js"
@@ -30,5 +33,6 @@
     "@hopin/pi-sdk": "^0.0.1",
     "bonjour": "^3.5.0",
     "fs-extra": "^7.0.1"
-  }
+  },
+  "gitHead": "873ca521f96fbf9bf2c96c4fc42cc6e5bd7fb76a"
 }
