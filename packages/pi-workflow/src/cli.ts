@@ -1,5 +1,6 @@
-import {getRaspberryPiInfo} from '@hopin/pi-sdk';
+#!/usr/bin/env node
 
+import {getRaspberryPiInfo} from '@hopin/pi-sdk';
 
 async function run() {
   const device = await getRaspberryPiInfo();
