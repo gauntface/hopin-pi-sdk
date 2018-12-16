@@ -32,6 +32,7 @@
     "@hopin/logger": "^2.0.0",
     "@hopin/pi-sdk": "^0.0.3",
     "bonjour": "^3.5.0",
+    "chalk": "^2.4.1",
     "fs-extra": "^7.0.1"
   },
   "gitHead": "873ca521f96fbf9bf2c96c4fc42cc6e5bd7fb76a"
