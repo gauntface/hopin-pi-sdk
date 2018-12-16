@@ -14,9 +14,11 @@ export async function getRaspberryPiInfo(): Promise<DeviceInfo|null> {
       return null
     }
 
-    return {
-      ModelID: modelResp.stdout,
-    };
+    if (modelResp.stdout.indexOf('Raspberry Pi') == 0) {
+      return {
+        ModelID: modelResp.stdout,
+      };
+    }
   } catch (err) {
     // NOOP
   }
