@@ -3,3 +3,5 @@ build/
 .vscode/
 lerna-debug.log
 *.tgz
+coverage/
+.nyc_output/
