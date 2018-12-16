@@ -9,6 +9,9 @@
   "bin": {
     "pi-workflow": "./build/cli.js"
   },
+  "files": [
+    "build/"
+  ],
   "scripts": {
     "prepublish": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,5 +38,5 @@
     "chalk": "^2.4.1",
     "fs-extra": "^7.0.1"
   },
-  "gitHead": "873ca521f96fbf9bf2c96c4fc42cc6e5bd7fb76a"
+  "gitHead": "97813fa4fc0ab3a9a4f3f6c8b3b8a33adc5b2771"
 }

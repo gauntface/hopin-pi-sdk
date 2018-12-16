@@ -6,6 +6,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "build/"
+  ],
   "scripts": {
     "prepublish": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +31,5 @@
   "dependencies": {
     "@hopin/logger": "^2.0.0"
   },
-  "gitHead": "873ca521f96fbf9bf2c96c4fc42cc6e5bd7fb76a"
+  "gitHead": "97813fa4fc0ab3a9a4f3f6c8b3b8a33adc5b2771"
 }
