@@ -5,17 +5,21 @@ const END_COMMENT = '# @hopin/pi-sdk [END]\n';
 
 export async function getRCLocal(filePath: string = '/etc/rc.local'): Promise<RCLocal> {
   const rcLocalBuffer = await fs.readFile(filePath);
-  return parseRCLocal(rcLocalBuffer.toString());
+  return parseRCLocal(filePath, rcLocalBuffer.toString());
 }
 
-function parseRCLocal(rcLocalFile: string): RCLocal {
+export async function writeRCLocal(rcLocal: RCLocal): Promise<void> {
+  await fs.writeFile(rcLocal.filePath, rcLocal.generateContents);
+}
+
+function parseRCLocal(filePath: string, rcLocalFile: string): RCLocal {
   // Get Custom Comments
   const commands: Array<string> = [];
   const startCommentIndex = rcLocalFile.indexOf(START_COMMENT);
   const endCommentIndex = rcLocalFile.indexOf(END_COMMENT);
   if (startCommentIndex == -1 && endCommentIndex == -1) {
     // No pi-wsdk task includes
-    return new RCLocal(rcLocalFile, '', []);
+    return new RCLocal(filePath, rcLocalFile, '', []);
   } else if (startCommentIndex != -1 && endCommentIndex != -1) {
     // Both start and 
     const startPieces = rcLocalFile.split(START_COMMENT);
@@ -35,18 +39,20 @@ function parseRCLocal(rcLocalFile: string): RCLocal {
     const commandsEndSplit = startPieces[1].split(END_COMMENT);
     const commands = commandsEndSplit[0].split('\n');
     const endOfFile = commandsEndSplit[1];
-    return new RCLocal(startOfFile, endOfFile, commands);
+    return new RCLocal(filePath, startOfFile, endOfFile, commands);
   } else {
     throw new Error(`Found one of the pi-sdk comments, but not the other. Start Index: ${startCommentIndex} End Index: ${endCommentIndex}`)
   }
 }
 
 export class RCLocal {
+  public filePath: string
   private start: string
   private end: string
   private commands: Array<string>
 
-  constructor(start: string, end: string, commands: Array<string>) {
+  constructor(filePath:string, start: string, end: string, commands: Array<string>) {
+    this.filePath = filePath
     this.start = start
     this.end = end
     this.commands = commands
@@ -57,5 +63,27 @@ export class RCLocal {
       return `${this.start}${this.end}`
     }
     return `${this.start}${START_COMMENT}${this.commands.join('\n')}${END_COMMENT}${this.end}`
+  }
+
+  addCommand(command: string): boolean {
+    if (this.commands.indexOf(command) !== -1) {
+      return false;
+    }
+
+    this.commands.push(command);
+    return true;
+  }
+
+  removeCommand(command: string): boolean {
+    if (this.commands.indexOf(command) === -1) {
+      return false;
+    }
+
+    this.commands.splice(this.commands.indexOf(command), 1);
+    return true;
+  }
+
+  getCommands(): Array<string> {
+    return this.commands;
   }
 }

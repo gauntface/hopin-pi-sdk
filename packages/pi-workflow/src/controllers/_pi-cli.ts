@@ -1,10 +1,13 @@
 import * as fs from 'fs-extra';
+import {getRCLocal, writeRCLocal} from '@hopin/pi-sdk';
 
 import {logger} from '../utils/_logger';
 
 class PiCLI {
   async run() {
-    // TODO: Add launch command to rc.local
+    const rcLocal = await getRCLocal();
+    rcLocal.addCommand('pi-workflow start-pi');
+    writeRCLocal(rcLocal);
     
     // logger.log(`/etc/rc.local file contents:\n\n${rcLocalFile}`)
   }
