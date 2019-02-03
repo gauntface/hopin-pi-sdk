@@ -36,9 +36,6 @@ export async function spawn(cmd: string, args: Array<string>, opts?: object): Pr
     
     process.on('close', (code) => {
       if (code !== 0) {
-        logger.error(`Output of '${cmd}' process:`);
-        logger.error(stdout);
-        logger.error(stderr);
         reject(new Error(`command exited with bad code ${code}`));
         return;
       }

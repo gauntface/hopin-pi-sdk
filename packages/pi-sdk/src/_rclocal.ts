@@ -66,7 +66,7 @@ export class RCLocal {
     const result = await spawn("sudo", args, {
       stdio: 'inherit',
     });
-    logger.log("Output from command: ", result.stdout, result.stderr);
+    logger.log("-----> Output from command: ", result.stdout, result.stderr);
   }
 
   getCommands(): Array<string> {
