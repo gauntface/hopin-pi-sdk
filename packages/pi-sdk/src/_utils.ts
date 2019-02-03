@@ -6,7 +6,13 @@ export const logger = new Logger({
   prefix: '@hopin/pi-sdk',
 });
 
-export async function spawn(cmd: string, args: Array<string>, opts?: object) {
+type OutputResult = {
+  stdout: string,
+  stderr: string,
+  code: number,
+}
+
+export async function spawn(cmd: string, args: Array<string>, opts?: object): Promise<OutputResult> {
   return new Promise((resolve, reject) => {
     let stdout = '';
     let stderr = '';
