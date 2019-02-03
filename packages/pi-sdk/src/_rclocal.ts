@@ -57,16 +57,18 @@ export class RCLocal {
     if (this.commands.length === 0) {
       return `${this.start}${this.end}`
     }
-    return `${this.start}${START_COMMENT}${this.commands.join('\n')}${END_COMMENT}${this.end}`
+    return `${this.start}${START_COMMENT}${this.commands.join('\n')}\n${END_COMMENT}${this.end}`
   }
 
   private async writeNewRCLocal() {
     // This will require sudo to overwrite the file, so fallback to a command using sudo
-    const args = ["echo", "-e", "\"" + this.generateContents() + "\"", ">", "'/etc/rc.local'"];
+    let newContents = this.generateContents();
+    newContents = newContents.split('"').join('\\"').split("\n").join("\\n");
+    const args = ["echo", "-e", "\"" + newContents + "\"", ">", "'/etc/rc.local'"];
     const result = await spawn("sudo", args, {
       stdio: 'inherit',
     });
-    logger.log("-----> Output from command: ", result.stdout, result.stderr);
+    logger.log("Output from command: ", result.stdout, result.stderr);
   }
 
   getCommands(): Array<string> {
