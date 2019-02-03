@@ -16,6 +16,9 @@ export async function spawn(cmd: string, args: Array<string>, opts?: object): Pr
   return new Promise((resolve, reject) => {
     let stdout = '';
     let stderr = '';
+
+    console.log(cmd, args);
+
     const process = origSpawn(cmd, args, opts);
     
     process.on('error', (err) => {
