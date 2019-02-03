@@ -34,8 +34,7 @@ function installNoSudo() {
   echo -e "🖥️  Setting up NPM...."
   grep -Fxq "${HOME}/.bashrc" 'export NPM_PACKAGES="/home/pi/.npm-packages"' &> ${ERROR_LOG}
   grepStatus=$?
-  if [[ $grepStatus -eq 0]]
-  then
+  if [[ $grepStatus -eq 0 ]]; then
     wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | sh &> ${ERROR_LOG}
     printf '%s' '
 export NPM_PACKAGES="/home/pi/.npm-packages"
