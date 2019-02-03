@@ -25,8 +25,5 @@
     "exclude": [
       "**/test/**/*"
     ]
-  },
-  "dependencies": {
-    "@mh-cbon/sudo-fs": "^1.0.17"
   }
 }
