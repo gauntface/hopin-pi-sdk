@@ -30,9 +30,21 @@ function installNode() {
   echo -e "\n\t✅  Done\n"
 }
 
+function installNoSudo() {
+  echo -e "🖥️  Setting up NPM...."
+  wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | sh &> ${ERROR_LOG}
+  echo -e "\n\t✅  Done\n"
+}
+
 function installNPMModules() {
   echo -e "📦  Installing NPM Modules..."
   npm install -g @hopin/pi-workflow &> ${ERROR_LOG}
+  printf '%s' '
+export NPM_PACKAGES="/home/pi/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+' >> ~/.bashrc
+
   echo -e "\n\t✅  Done\n"
 }
 
@@ -42,5 +54,7 @@ echo -e "\n📓  Installing @hopin/pi-sdk\n"
 initDirectories
 
 installNode
+
+installNoSudo
 
 installNPMModules
