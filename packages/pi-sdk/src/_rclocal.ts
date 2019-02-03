@@ -1,4 +1,5 @@
 import * as fs from 'fs-extra';
+const sudofs = require('@mh-cbon/sudo-fs');
 
 import { spawn, logger } from './_utils';
 
@@ -62,16 +63,28 @@ export class RCLocal {
 
   private async writeNewRCLocal() {
     // This will require sudo to overwrite the file, so fallback to a command using sudo
-    let newContents = this.generateContents();
-    newContents = newContents.split('"').join('\\"').split("\n").join("\\\\n");
-    const args = ["echo", "-e", "\"" + newContents + "\"", ">", "'/etc/rc.local'"];
+    /* const newContents = this.generateContents();
+    const echoCommand = `echo -e '${newContents.split("\n").join("\\n").split('"').join('\\"')}' > /etc/rc.local`
+    // const argsCommand = echoCommand.split('"').join('\\"');
+    const args = ["sh", "-c", "\"" + echoCommand + "\""];
     const result = await spawn("sudo", args, {
       stdio: 'inherit',
-    });
+    });*/
 
-    if (result.stdout.length > 0 || result.stderr.length > 0) {
+    await new Promise((resolve, reject) => {
+      sudofs.writeFile('/etc/rc.local', this.generateContents(), function(err: any, data: any) {
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(data);
+      });
+    });
+    
+
+    /* if (result.stdout.length > 0 || result.stderr.length > 0) {
       logger.log("Output from command: ", result.stdout, result.stderr);
-    }
+    }*/
   }
 
   getCommands(): Array<string> {
