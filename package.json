@@ -4,10 +4,10 @@
     "@hopin/wbt-ts-node": "0.0.17",
     "@types/bonjour": "3.5.5",
     "@types/fs-extra": "5.0.4",
-    "ava": "1.0.1",
+    "ava": "1.2.0",
     "fs-extra": "7.0.1",
     "gulp": "4.0.0",
-    "lerna": "3.10.7",
+    "lerna": "3.10.8",
     "nyc": "13.1.0"
   },
   "name": "hopin-pi-sdk",
