@@ -1,6 +1,6 @@
 {
   "name": "@hopin/pi-workflow",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A tool to help developing for the Raspberry Pi.",
   "publishConfig": {
     "access": "public"
@@ -34,7 +34,7 @@
   "homepage": "https://github.com/gauntface/hopin-pi-sdk#readme",
   "dependencies": {
     "@hopin/logger": "^2.0.0",
-    "@hopin/pi-sdk": "^0.0.13",
+    "@hopin/pi-sdk": "^0.0.14",
     "bonjour": "^3.5.0",
     "chalk": "^2.4.1",
     "fs-extra": "^7.0.1"
