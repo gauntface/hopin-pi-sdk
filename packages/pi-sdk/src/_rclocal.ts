@@ -59,7 +59,7 @@ export class RCLocal {
   }
 
   private async writeNewRCLocal() {
-    await fs.writeFile('/etc/rc.local', this.generateContents);
+    await fs.writeFile('/etc/rc.local', this.generateContents());
   }
 
   getCommands(): Array<string> {
