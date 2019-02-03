@@ -1,5 +1,7 @@
 import * as fs from 'fs-extra';
-import { start } from 'repl';
+
+import { spawn, logger } from './_utils';
+
 const START_COMMENT = '# @hopin/pi-sdk [START]\n';
 const END_COMMENT = '# @hopin/pi-sdk [END]\n';
 
@@ -59,7 +61,10 @@ export class RCLocal {
   }
 
   private async writeNewRCLocal() {
-    await fs.writeFile('/etc/rc.local', this.generateContents());
+    // This will require sudo to overwrite the file, so fallback to a command using sudo
+    const args = ["echo", "-e", "\"" + this.generateContents() + "\"", ">", "'/etc/rc.local'"];
+    logger.debug("Write new rc.local args: ", args);
+    await spawn("sudo", args)
   }
 
   getCommands(): Array<string> {
