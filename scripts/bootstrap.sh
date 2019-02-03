@@ -34,7 +34,7 @@ function installNoSudo() {
   echo -e "🖥️  Setting up NPM...."
   # A very naive test to see if the no-sudo script has already run.
   # If the export NPM_PACKAGES= line is found, then assume we've run already.
-  grep -Fxq "${HOME}/.bashrc" 'export NPM_PACKAGES="/home/${USER}/.npm-packages"' &> ${ERROR_LOG}
+  grep -Eq "export NPM_PACKAGES=\"/home/${USER}/.npm-packages\"" "${HOME}/.bashrc" &> ${ERROR_LOG}
   grepStatus=$?
   echo -e "GREP STATUS --------------> ${grepStatus}"
   if ! [[ $grepStatus -eq 0 ]]; then
