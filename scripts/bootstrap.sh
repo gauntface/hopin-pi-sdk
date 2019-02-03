@@ -43,6 +43,7 @@ export NPM_PACKAGES="/home/pi/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 ' >> "${HOME}/.bashrc"
+    source "${HOME}/.bashrc" &> ${ERROR_LOG}
   fi
   echo -e "\n\t✅  Done\n"
 }

@@ -1,6 +1,6 @@
 import * as Bonjour from 'bonjour';
 
-import {logger} from './utils/_logger'
+import {logger} from '../utils/_logger'
 
 // TODO: Trigger pi update from server
 export async function updatePi() {

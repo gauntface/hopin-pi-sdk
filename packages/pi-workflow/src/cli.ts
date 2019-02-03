@@ -2,7 +2,7 @@
 
 import {getRaspberryPiInfo} from '@hopin/pi-sdk';
 import {logger} from './utils/_logger';
-import {piCLI} from './controllers/_pi-cli';
+import {piCLI} from './pi/controllers/_pi-cli';
 
 async function run() {
   const device = await getRaspberryPiInfo();

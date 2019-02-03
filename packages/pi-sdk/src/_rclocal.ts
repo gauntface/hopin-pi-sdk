@@ -58,7 +58,16 @@ export class RCLocal {
     return `${this.start}${START_COMMENT}${this.commands.join('\n')}${END_COMMENT}${this.end}`
   }
 
+  private async writeNewRCLocal() {
+    await fs.writeFile('/etc/rc.local', this.generateContents);
+  }
+
   getCommands(): Array<string> {
     return this.commands;
+  }
+
+  async addCommand(cmd: string) {
+    this.commands.push(cmd);
+    await this.writeNewRCLocal();
   }
 }
