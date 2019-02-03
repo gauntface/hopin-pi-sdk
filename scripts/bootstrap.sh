@@ -39,12 +39,7 @@ function installNoSudo() {
   echo -e "GREP STATUS --------------> ${grepStatus}"
   if ! [[ $grepStatus -eq 0 ]]; then
     echo -e "RUNNING --------------------"
-    bash <(curl -s "https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh?$(date +%s)") &> ${ERROR_LOG}
-    printf '%s' '
-export NPM_PACKAGES="/home/pi/.npm-packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
-export PATH="$NPM_PACKAGES/bin:$PATH"
-' >> "${HOME}/.bashrc"
+    curl -sL "https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh" | bash -
   fi
   echo -e "\n\t✅  Done\n"
 }
