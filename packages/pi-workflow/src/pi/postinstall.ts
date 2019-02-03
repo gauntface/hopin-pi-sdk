@@ -18,7 +18,7 @@ export async function postInstall() {
   ];
   for (const c of commandsToRun) {
     if (commands.indexOf(c) == -1) {
-      rcLocal.addCommand(c);
+      await rcLocal.addCommand(c);
     }
   }
 }
