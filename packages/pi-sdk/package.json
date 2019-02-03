@@ -1,6 +1,6 @@
 {
   "name": "@hopin/pi-sdk",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "A library consisting of useful functions for Raspberry Pi.",
   "main": "./build/index.js",
   "publishConfig": {
