@@ -27,6 +27,6 @@
     ]
   },
   "dependencies": {
-    "@mh-cbon/sudo-fs": "^1.0.17"
+    "@mh-cbon/sudo-fs": "1.0.17"
   }
 }
