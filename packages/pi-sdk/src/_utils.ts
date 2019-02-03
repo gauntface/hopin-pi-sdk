@@ -22,13 +22,17 @@ export async function spawn(cmd: string, args: Array<string>, opts?: object): Pr
       reject(err);
     });
 
-    process.stdout.on('data', (data) => {
-      stdout += data;
-    });
+    if (process.stdout != null) {
+      process.stdout.on('data', (data) => {
+        stdout += data;
+      });
+    }
     
-    process.stderr.on('data', (data) => {
-      stderr += data;
-    });
+    if (process.stderr != null) {
+      process.stderr.on('data', (data) => {
+        stderr += data;
+      });
+    }
     
     process.on('close', (code) => {
       if (code !== 0) {
