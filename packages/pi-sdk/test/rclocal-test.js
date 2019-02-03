@@ -15,6 +15,15 @@ test('should parse an rc.local fle with no pi-sdk comments', async (t) => {
   t.is(got, wantBuffer.toString());
 });
 
+test('should parse an rc.local fle with commands, no pi-sdk comments', async (t) => {
+  const filePath = path.join(staticDir, 'rc-local-default-ip.txt');
+  const file = await getRCLocal(filePath);
+  
+  const got = file.generateContents();
+  const wantBuffer = await fs.readFile(filePath);
+  t.is(got, wantBuffer.toString());
+});
+
 test('should parse an rc.local fle with pi-sdk comments and commands ', async (t) => {
   const filePath = path.join(staticDir, 'rc-local-with-comments.txt');
   const file = await getRCLocal(filePath);

@@ -10,7 +10,7 @@ async function run() {
     logger.log(`Running on the pi: ${device.ModelID}`);
     await piCLI.run();
   } else {
-    logger.log('Running on a normal computer - TODO: Offer options.');
+    logger.log('Running on a non-pi device.');
   }
 }
 

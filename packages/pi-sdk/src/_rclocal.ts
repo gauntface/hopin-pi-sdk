@@ -10,7 +10,6 @@ export async function getRCLocal(filePath: string = '/etc/rc.local'): Promise<RC
 
 function parseRCLocal(rcLocalFile: string): RCLocal {
   // Get Custom Comments
-  const commands: Array<string> = [];
   const startCommentIndex = rcLocalFile.indexOf(START_COMMENT);
   const endCommentIndex = rcLocalFile.indexOf(END_COMMENT);
   if (startCommentIndex == -1 && endCommentIndex == -1) {
@@ -52,10 +51,14 @@ export class RCLocal {
     this.commands = commands
   }
 
-  generateContents() {
+  private generateContents() {
     if (this.commands.length === 0) {
       return `${this.start}${this.end}`
     }
     return `${this.start}${START_COMMENT}${this.commands.join('\n')}${END_COMMENT}${this.end}`
+  }
+
+  getCommands(): Array<string> {
+    return this.commands;
   }
 }
