@@ -8,7 +8,7 @@
     "fs-extra": "7.0.1",
     "gulp": "4.0.0",
     "lerna": "3.10.8",
-    "nyc": "13.1.0"
+    "nyc": "13.3.0"
   },
   "name": "hopin-pi-sdk",
   "scripts": {
