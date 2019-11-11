@@ -37,7 +37,7 @@
     "@hopin/pi-sdk": "^0.0.21",
     "@mh-cbon/sudo-fs": "^1.0.17",
     "bonjour": "^3.5.0",
-    "chalk": "^2.4.1",
+    "chalk": "^3.0.0",
     "fs-extra": "^7.0.1"
   },
   "gitHead": "2928c0b19cd1fa24e61209ccd53aa04bc67c4f21"
