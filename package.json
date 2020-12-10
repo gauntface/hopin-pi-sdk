@@ -4,7 +4,7 @@
     "@hopin/wbt-ts-node": "0.0.17",
     "@types/bonjour": "3.5.5",
     "@types/fs-extra": "9.0.4",
-    "ava": "3.13.0",
+    "ava": "3.14.0",
     "fs-extra": "9.0.1",
     "gulp": "4.0.0",
     "lerna": "3.10.8",
